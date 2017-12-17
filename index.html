@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        body {
+            background:#0A0A0D;
+            color:#FFFFFF;
+            overflow: hidden;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        body, div {
+            margin:0;
+            padding:0;
+        }
+
+        canvas {
+            position:absolute;
+            top:0;
+            left:41px;
+            background:#000000;
+        }
+
+        form {
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+
+        label {
+            display:inline-block;
+            width:100px;
+        }
+
+        input {
+            display:inline-block;
+            box-sizing: border-box;
+        }
+
+        #editor {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100vw;
+            height:calc(100vh - 27px);
+        }
+
+        #editor > .ace_editor {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            opacity:0;
+            pointer-events: none;
+            visibility:hidden;
+            background: rgba(0,0,0,0.4);
+        }
+
+        #editor > .ace_editor.active {
+            opacity:1;
+            pointer-events: all;
+            visibility:visible;
+        }
+
+        .ace_marker-layer .ace_active-line {
+            opacity:0.4;
+        }
+
+        .ace_folding-enabled > .ace_gutter-cell {
+            line-height:16px;
+        }
+
+        input[type=number] {
+            width:60px;
+        }
+
+        input[type=submit] {
+            position:fixed;
+            bottom:0;
+            left:0;
+            right:0;
+            width:100vw;
+            height:27px;
+
+            padding:6px;
+
+            outline:none;
+            background:#11110A;
+            color:#FFFFFF;
+            border:none;
+            border-top:1px solid rgba(255,255,200,0.2);
+
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .control-over-editor {
+            z-index:9;
+        }
+
+        .duration-widget {
+            position:absolute;
+            bottom:30px;
+            right:0px;
+        }
+
+        .zoom-widget {
+            position:absolute;
+            top:6px;
+            right:4px;
+            user-select: none;
+        }
+
+        .zoom-widget span {
+            display:block;
+            color:white;
+            font-weight:bold;
+            text-align:center;
+            font-size: 1.1em;
+            padding:4px;
+            margin:4px;
+            line-height:0.7em;
+            cursor:pointer;
+        }
+
+        .busy-overlay {
+            opacity:0;
+            pointer-events: none;
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background-color:rgba(30,30,33,0.66);
+            z-index:10;
+            transition: opacity 0.15s ease-in-out;
+        }
+
+        .busy .busy-overlay {
+            opacity:1;
+            pointer-events: all;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1460" height="500"></canvas>
+    <form>
+        <div id="editor"></div>
+        <div class="duration-widget control-over-editor">
+            <label>Duration</label><input name="length" type="number" value="2">
+        </div>
+        <div class="zoom-widget control-over-editor">
+            <span class="zoom-widget-button zoom-widget-button-plus">+</span>
+            <span class="zoom-widget-button zoom-widget-button-minus">&#8210;</span>
+        </div>
+        <div>
+            <input type="submit" value="Execute">
+        </div>
+    </form>
+    <div class="busy-overlay"></div>
+    <script src="vendors/ace.1_2_5.min.js"></script>
+    <script src="vendors/js-base64.js"></script>
+    <script src="sound-canvas.js"></script>
+    <script src="editor.js"></script>
+    <script src="url.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
