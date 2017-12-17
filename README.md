@@ -1,10 +1,12 @@
 # microsound (prototype)
 
-The main objective of the project is to provide an editor and built-in function facilitating the generation of sound samples with code, as well as provide an example runtime for code-golfing projects (for js13k and the likes).
+The main objective of the project is to provide an editor and built-in functions facilitating the generation of sound samples with code, as well as provide an example runtime for code-golfing projects (for js13k and the likes).
 
-This project is more geared towards sound-effects synthesis than music generation / livecoding.
+This project is more geared towards sound-effects synthesis than music generation or livecoding.
 
 A secondary objective is to resurrect my [Algorithmic Synth](https://github.com/kchapelier/algorithmicsynthjs) project, although the state of the implementations of AudioWorklets is apparently still problematic.
+
+This prototype works best in Firefox and Chrome (stable, not canary).
 
 ## Serious warning : Avoid using headphones with this and other DIY audio synthesis experiments. You could be one typo away from eardrum rupture.
 
