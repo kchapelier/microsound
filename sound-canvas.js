@@ -1,5 +1,6 @@
 
 // TODO allow moving along the waveform cannot be done by drag-dropping or scrolling
+// TODO support window resize
 
 var SoundCanvas = function SoundCanvas (canvas) {
     this.canvas = canvas;

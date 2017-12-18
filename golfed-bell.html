@@ -1,0 +1,11 @@
+<body onload="
+a=new AudioContext
+s=a.sampleRate
+M=Math
+SM=(i,m)=>M.sin(172.8*i*2**((m-21)/12))
+b=a.createBuffer(1,s*2,s)
+for(i=0;i<s*2;i++)b.getChannelData(0)[i]=(SM(j=i/s,32)*SM(j,52.3)*SM(j,68)+SM(j,36)*SM(j,56.3)*SM(j,72)+SM(j,39)*SM(j,59.3)*SM(j,75))*M.min(M.max(j*50,0),1)**.5*(1-j/2)**3*.3
+p=a.createBufferSource()
+p.buffer=b
+p.connect(a.destination)
+p.start()">
