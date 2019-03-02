@@ -9,7 +9,8 @@ var codeEditor = new Editor('return RA();'),
     zoomMinusElement = document.querySelector('.zoom-widget-button-minus'),
     form = document.querySelector('form'),
     canvas = document.querySelector('#canvas'),
-    soundCanvas = new SoundCanvas(canvas);
+    timelineTracker = document.querySelector('#timelineTracker'),
+    soundCanvas = new SoundCanvas(canvas, timelineTracker);
 
 codeEditor.appendTo(document.querySelector('#editor'));
 codeEditor.show();
@@ -26,7 +27,7 @@ function setBusy(bool) {
     }
 }
 
-var zoom = 0;
+var zoom = 1;
 
 var ww = new Worker('./webworker.js?cache=' + Date.now());
 
@@ -89,12 +90,12 @@ function update () {
 }
 
 zoomPlusElement.addEventListener('click', function () {
-    zoom = Math.min(7, Math.max(-1, zoom + 1));
+    zoom = Math.min(4, Math.max(0, zoom + 1));
     soundCanvas.setZoom(zoom);
 });
 
 zoomMinusElement.addEventListener('click', function () {
-    zoom = Math.min(7, Math.max(-1, zoom - 1));
+    zoom = Math.min(4, Math.max(0, zoom - 1));
     soundCanvas.setZoom(zoom);
 });
 

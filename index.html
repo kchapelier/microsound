@@ -17,12 +17,34 @@
             padding:0;
         }
 
-        canvas {
+        #timeline {
             position:absolute;
             top:0;
             left:0;
             width:100vw;
-            height:50vh;
+            height:10px;
+            background:#1a1a1a;
+        }
+
+        #timelineTracker {
+            position:absolute;
+            top:0;
+            left:0;
+            transform-origin: top left;
+            transform:translateX(0%) scale(0.1, 1.0);
+            will-change: transform;
+            width:100vw;
+            height:10px;
+            background:#858585;
+            cursor:pointer;
+        }
+
+        canvas {
+            position:absolute;
+            top:10px;
+            left:0;
+            width:100vw;
+            height:calc(50vh - 10px);
             background:#000000;
         }
 
@@ -114,7 +136,7 @@
 
         .zoom-widget {
             position:absolute;
-            top:6px;
+            top:16px;
             right:4px;
             user-select: none;
         }
@@ -153,6 +175,7 @@
 </head>
 <body>
     <form>
+        <div id="timeline"><div id="timelineTracker"></div></div>
         <canvas id="canvas" width="1460" height="500"></canvas>
         <div id="editor"></div>
         <div class="duration-widget control-over-editor">
