@@ -31,10 +31,6 @@ var url = {
             }
         }
 
-        if (data.code === null || data.duration === null) {
-            data = null;
-        }
-
         return data;
     }
 };

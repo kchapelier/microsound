@@ -20,7 +20,9 @@
         canvas {
             position:absolute;
             top:0;
-            left:41px;
+            left:0;
+            width:100vw;
+            height:50vh;
             background:#000000;
         }
 
@@ -44,10 +46,10 @@
 
         #editor {
             position:absolute;
-            top:0;
+            bottom:27px;
             left:0;
             width:100vw;
-            height:calc(100vh - 27px);
+            height:calc(50vh - 27px);
         }
 
         #editor > .ace_editor {
@@ -106,8 +108,8 @@
 
         .duration-widget {
             position:absolute;
-            bottom:30px;
-            right:0px;
+            bottom:35px;
+            right:5px;
         }
 
         .zoom-widget {
@@ -150,11 +152,11 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas" width="1460" height="500"></canvas>
     <form>
+        <canvas id="canvas" width="1460" height="500"></canvas>
         <div id="editor"></div>
         <div class="duration-widget control-over-editor">
-            <label>Duration</label><input name="length" type="number" value="2">
+            <label>Duration</label><input name="length" type="number" value="2" step="0.01">
         </div>
         <div class="zoom-widget control-over-editor">
             <span class="zoom-widget-button zoom-widget-button-plus">+</span>
